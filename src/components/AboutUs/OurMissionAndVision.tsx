@@ -18,26 +18,22 @@ const OurMissionAndVision: React.FC = () => {
       >
         <AccordionItem uuid="a">
           <AccordionItemHeading>
-            <AccordionItemButton>Our Mission</AccordionItemButton>
+            <AccordionItemButton>Misyonumuz</AccordionItemButton>
           </AccordionItemHeading>
           <AccordionItemPanel>
             <p>
-              Our organizational sprit believes that where design meets passion
-              & love with space, good architecture happens here. We are a
-              leading architecture firm dedicated to creating visionary designs.
+            KİPRAS GROUP olarak misyonumuz, estetik, işlevsellik ve sürdürülebilirliği bir araya getirerek, kullanıcıların ihtiyaçlarına ve hayallerine cevap veren, zamana meydan okuyan mimari eserler yaratmaktır.
             </p>
           </AccordionItemPanel>
         </AccordionItem>
 
         <AccordionItem uuid="b">
           <AccordionItemHeading>
-            <AccordionItemButton>Our Vision</AccordionItemButton>
+            <AccordionItemButton>Vizyonumuz</AccordionItemButton>
           </AccordionItemHeading>
           <AccordionItemPanel>
             <p>
-              Our organizational sprit believes that where design meets passion
-              & love with space, good architecture happens here. We are a
-              leading architecture firm dedicated to creating visionary designs.
+            Vizyonumuz, yenilikçi ve sürdürülebilir mimari çözümlerle, Türkiye'de ve dünyada örnek gösterilen, öncü bir mimarlık firması olmaktır.
             </p>
           </AccordionItemPanel>
         </AccordionItem>

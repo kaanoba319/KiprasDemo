@@ -16,7 +16,7 @@ export default function Page() {
       <NavbarStyleTwo />
 
       <PageTitle 
-        title="About Us"
+        title="Hakkımızda"
         homeText="Home"
         homeUrl="/"
       />

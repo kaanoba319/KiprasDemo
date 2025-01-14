@@ -22,17 +22,16 @@ const AboutUsContent: React.FC = () => {
       <FsLightbox
         toggler={toggler}
         sources={[
-          "https://www.youtube.com/embed/sVi2pdF1aIc?si=wuP0-H9KuJnEk0Js",
+          "https://www.youtube.com/watch?v=SbZfAW8zv_A&ab_channel=netdm%C3%BCzik",
         ]}
       />
 
       <div className="about-area pt-100">
         <div className="container">
           <div className="about-three-title">
-            <span>ABOUT US</span>
+            <span>HAKKIMIZDA</span>
             <h2>
-              We Are <b>Traz.</b> We Create Unique And Sustainable Living
-              Spaces, Designed For Sharing
+              Biz <b>KİPRAS GROUPs </b>'uz. Hayalleri İnşa Ediyor, Geleceği Şekillendiriyoruz.
             </h2>
           </div>
 
@@ -45,28 +44,25 @@ const AboutUsContent: React.FC = () => {
               <div className="col-lg-6 col-md-12">
                 <div className="about-three-left-content">
                   <p className="mb-0">
-                    We are leading architecture firm dedicated to creating
-                    visionary designs that transcend expectations. With our team
-                    of highly skilled architects and designers, we specialize in
-                    crafting.
+                  KİPRAS GROUP olarak, mimari tasarım, inşaat ve proje yönetimindeki gelişmiş bakış açımızı 22 yıllık tecrübemizle hayata geçiriyoruz. Konut, ticari ve kamu projelerinde estetik, işlevsellik ve sürdürülebilirliği bir araya getirerek zamansız eserler oluşturuyoruz.
                   </p>
 
                   <ul className="list">
                     <li>
                       <Image src={arrowIcon} alt="arrow" width={28} height={10} />
-                      Innovative Design Approach
+                      Yenilikçi Tasarım Anlayışı
                     </li>
                     <li>
                       <Image src={arrowIcon} alt="arrow" width={28} height={10} />
-                      Highly Skilled Expertise and Specialization
+                      22 Yıllık Uzmanlık ve Deneyim
                     </li>
                     <li>
                       <Image src={arrowIcon} alt="arrow" width={28} height={10} /> A client-centric
-                      approach for an architectural company
+                      Müşteri Odaklı Yaklaşım
                     </li>
                     <li>
                       <Image src={arrowIcon} alt="arrow" width={28} height={10} />
-                      Sustainable Design Practices
+                      Sürdürülebilir Tasarım Uygulamaları
                     </li>
                   </ul>
 
@@ -94,22 +90,21 @@ const AboutUsContent: React.FC = () => {
 
                   <div className="about-wrap-content">
                     <h2>
-                      Architecture & Interior Is Where We Belong, We Really Love
-                      Our Job
+                    Mimarlık ve İç Mimarlık Bizim İşimiz, Tutkumuz
                     </h2>
                     <p>
-                      Traz is a full-service design firm providing
-                      architecture, master planning, urban design, interior
-                      architecture, space planning and programming. Our
-                      portfolio of completed work includes highly acclaimed and
-                      award-winning projects.
+                    KİPRAS GROUP, mimari tasarım, master planlama, kentsel tasarım, iç
+    mimari, alan planlaması ve programlama gibi alanlarda geniş kapsamlı
+    hizmet veren bir tasarım firmasıdır. Tamamlanmış projelerimiz arasında
+    uluslararası çapta beğeni toplayan ve ödüllü işler bulunmaktadır.
                     </p>
                     <p>
-                      At Traz, we believe that architecture goes beyond mere
-                      structures, it is an art form that shapes the way we live,
-                      work, and interact with our surroundings. With a deep
-                      understanding of the built environment and an unwavering
-                      commitment.
+                    KİPRAS GROUP olarak, mimarlığın yalnızca binalardan ibaret
+    olmadığına, yaşamımızı, çalışma şeklimizi ve çevremizle
+    etkileşimimizi şekillendiren bir sanat olduğuna inanıyoruz. Yapılı
+    çevreye dair derin bir anlayış ve sarsılmaz bir özveri ile
+    müşterilerimizin hayallerini gerçeğe dönüştürüyor, mekanlara kimlik
+    ve ruh katıyoruz.
                     </p>
                   </div>
                 </div>
