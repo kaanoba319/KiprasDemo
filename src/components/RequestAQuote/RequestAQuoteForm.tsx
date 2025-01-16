@@ -17,9 +17,9 @@ const RequestAQuoteForm = () => {
     screenResolution: "", // Ekran çözünürlüğü ekledik
     deviceType: "", // Cihaz türü ekledik
   });
-
+  const [cvLoader, setCvLoader] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [sending, setSending] = useState("Şimdi gönderin!");
   // Ekran çözünürlüğü ve cihaz türünü almak için fonksiyon
   const fetchDeviceDetails = () => {
     const screenResolution = `${window.screen.width}x${window.screen.height}`;
@@ -35,7 +35,7 @@ const RequestAQuoteForm = () => {
   // IP adresini almak için fonksiyon
   const fetchIP = async () => {
     try {
-      const response = await fetch("https://ipinfo.io/json");
+      const response = await fetch("/api/get-ip");
       const data = await response.json();
       setFormData((prevData) => ({
         ...prevData,
@@ -78,13 +78,18 @@ const RequestAQuoteForm = () => {
         }
       };
       reader.readAsDataURL(file);
+
+      setCvLoader("Yükleniyor..");
+      setTimeout(() => {
+        setCvLoader(`Yüklendi!, cv: ${file.name}`);
+      }, 1000);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    setSending("Gönderiliyor");
     try {
       const res = await fetch("/api/hiring", {
         method: "POST",
@@ -96,6 +101,22 @@ const RequestAQuoteForm = () => {
 
       if (res.ok) {
         alert("Form başarıyla gönderildi!");
+        setSending("Gönderildi");
+
+        setFormData({
+          fullName: "",
+          phone: "",
+          email: "",
+          position: "",
+          message: "",
+          cv: "",
+          ip: "",
+          screenResolution: "",
+          deviceType: "",
+        }); // Formu sıfırlıyoruz
+
+        setSending("Şimdi Gönderin!");
+        setCvLoader("");
       } else {
         alert("Bir hata oluştu.");
       }
@@ -143,6 +164,7 @@ const RequestAQuoteForm = () => {
                           className="form-control"
                           placeholder="Lütfen isim giriniz"
                           onChange={handleInputChange}
+                          value={formData.fullName}
                           required
                         />
                       </div>
@@ -153,6 +175,7 @@ const RequestAQuoteForm = () => {
                         </label>
                         <input
                           type="email"
+                          value={formData.email}
                           name="email"
                           className="form-control"
                           placeholder="Lütfen mailinizi giriniz"
@@ -169,7 +192,7 @@ const RequestAQuoteForm = () => {
                           type="text"
                           name="phone"
                           className="form-control"
-                          placeholder="+90 321 546 2345"
+                          placeholder="0542 123 123 1212"
                           onChange={handleInputChange}
                           required
                         />
@@ -183,16 +206,22 @@ const RequestAQuoteForm = () => {
                         <select
                           id="position"
                           name="position"
+                          defaultValue={formData.position}
                           className="form-select form-control"
                           onChange={handleInputChange}
                           value={formData.position}
                         >
                           <option value="">Seçiniz..</option>
-                          <option value="frontend">Front-end Developer</option>
-                          <option value="backend">Back-end Developer</option>
-                          <option value="fullstack">
-                            Full-stack Developer
+                          <option value="Developer">Developer</option>
+                          <option value="Tasarımcı">Tasarımcı</option>
+                          <option value="Reklam">Reklam</option>
+                          <option value="Kişisel Asistan">
+                            Kişisel Asistan
                           </option>
+                          <option value="Broker">Broker</option>
+                          <option value="Mimar">Mimar</option>
+                          <option value="İç Mimar">İç Mimar</option>
+                          <option value="Diğer">Diğer</option>
                         </select>
                       </div>
 
@@ -200,17 +229,20 @@ const RequestAQuoteForm = () => {
                         <label>
                           CV Gönderin<span>*</span>
                         </label>
+
                         <input
                           type="file"
                           accept=".pdf"
                           name="cv"
+                          disabled={formData.cv ? true : false}
                           onChange={handleFileChange}
                           className="w-full bg-gray-700 text-white p-3 rounded focus:outline-none"
                         />
+                        {cvLoader}
                       </div>
 
                       <button type="submit" className="default-btn">
-                        Şimdi gönderin
+                        {sending}
                       </button>
                     </form>
                   </div>
