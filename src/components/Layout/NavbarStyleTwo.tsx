@@ -85,51 +85,21 @@ const NavbarStyleTwo: React.FC = () => {
           </button>
 
           {/* Menu For Desktop Device */}
-          <div className={classOne} id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto">
+          <div
+            style={{ marginTop: "10px" }}
+            className={classOne}
+            id="navbarSupportedContent"
+          >
+            <ul style={{ marginTop: "10px" }} className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle text-white"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href="/"
+                  className={`nav-link text-white ${
+                    currentRoute === "/" ? "active" : ""
+                  }`}
                 >
                   Anasayfa
                 </Link>
-
-                <ul className="dropdown-menu">
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        currentRoute === "/" ? "active" : ""
-                      }`}
-                      href="/"
-                    >
-                      Architecture Home
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        currentRoute === "/interior-home/" ? "active" : ""
-                      }`}
-                      href="/interior-home/"
-                    >
-                      Interior Home
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link
-                      className={`nav-link ${
-                        currentRoute === "/architecture-studio/" ? "active" : ""
-                      }`}
-                      href="/architecture-studio/"
-                    >
-                      Architecture Studio
-                    </Link>
-                  </li>
-                </ul>
               </li>
 
               <li className="nav-item">
@@ -149,7 +119,7 @@ const NavbarStyleTwo: React.FC = () => {
                   href="#"
                   onClick={(e) => e.preventDefault()}
                 >
-                  Portfolio
+                  Projeler
                 </Link>
 
                 <ul className="dropdown-menu">
@@ -468,18 +438,23 @@ const NavbarStyleTwo: React.FC = () => {
                     currentRoute === "/contact-us/" ? "active" : ""
                   }`}
                 >
-                  Contact Us
+                  İletişim
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* others-options */}
-          <div className="others-option d-flex align-items-center">
+          <div className="others-option d-flex align-items-center mt-3 sm:-mt-2">
             <div className="option-item">
               <div className="search-btn" onClick={handleToggleSearchModal}>
                 <i className="ri-search-line"></i>
               </div>
+            </div>
+            <div className="option-item">
+              <Link href="/request-quote" className="default-btn">
+                Teklif Alın
+              </Link>
             </div>
           </div>
         </div>
@@ -496,8 +471,13 @@ const NavbarStyleTwo: React.FC = () => {
             <div className="modal-header d-flex align-items-center justify-content-between">
               <div>
                 <Image
-                  src={blackLogo}
-                  alt="Traz Logo"
+                  style={{
+                    borderRadius: "5px",
+                    width: "75px",
+                    boxShadow: "5px 5px 15px 5px rgba(0,0,0,0.32)",
+                  }}
+                  src={logo}
+                  alt="kipras Logo"
                   width={100}
                   height={41}
                 />
@@ -508,6 +488,7 @@ const NavbarStyleTwo: React.FC = () => {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                style={{ color: "black" }}
                 onClick={handleToggleMobileMenu}
               >
                 <i className="ri-close-line"></i>
