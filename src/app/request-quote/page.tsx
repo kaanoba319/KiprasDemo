@@ -9,11 +9,9 @@ export default function Page() {
     <>
       {/* Navbar */}
       <NavbarStyleTwo />
-
-      {/* Sayfa Başlığı */}
       <PageTitle
-        title="Request a Quote"
-        homeText="Home"
+        title="Kariyerinizi bizimle yapın"
+        homeText="Anasayfa"
         homeUrl="/"
         cta={{
           text: "Hemen Teklif Al",
@@ -23,8 +21,6 @@ export default function Page() {
 
       {/* Teklif Formu */}
       <RequestAQuoteForm />
-
-      {/* Footer */}
       <Footer />
     </>
   );

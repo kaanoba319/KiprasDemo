@@ -485,7 +485,7 @@ const Navbar: React.FC = () => {
 
             <div className="option-item">
               <Link href="/request-quote" className="default-btn">
-                Teklif isteyin
+                Kariyerinizi bizimle yapmak ister misiniz?
               </Link>
             </div>
           </div>

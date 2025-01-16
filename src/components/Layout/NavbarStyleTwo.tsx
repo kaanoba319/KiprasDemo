@@ -12,7 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-import logo from "/public/images/black-logo.svg";
+import logo from "/public/images/kiprasImage/kipras.jpeg";
 import blackLogo from "/public/images/black-logo.svg";
 
 const NavbarStyleTwo: React.FC = () => {
@@ -52,14 +52,24 @@ const NavbarStyleTwo: React.FC = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-with-different-color" id="navbar">
+      <nav
+        className="navbar navbar-expand-lg navbar-with-different-color"
+        id="navbar"
+        style={{ backgroundColor: "#1A1A1A" }}
+      >
         <div className="container-fluid position-relative">
           <Link className="navbar-brand" href="/">
-            <Image src={logo} alt="Logo" width={113} height={54} />
+            <Image
+              src={logo}
+              alt="Logo"
+              style={{ borderRadius: "15px" }}
+              width={100}
+              height={54}
+            />
           </Link>
 
           {/* Toggle navigation */}
-          <button 
+          <button
             className={classTwo}
             type="button"
             data-toggle="collapse"
@@ -79,11 +89,11 @@ const NavbarStyleTwo: React.FC = () => {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle text-white"
                   href="#"
                   onClick={(e) => e.preventDefault()}
                 >
-                  Home
+                  Anasayfa
                 </Link>
 
                 <ul className="dropdown-menu">
@@ -125,17 +135,17 @@ const NavbarStyleTwo: React.FC = () => {
               <li className="nav-item">
                 <Link
                   href="/about-us/"
-                  className={`nav-link ${
+                  className={`nav-link text-white ${
                     currentRoute === "/about-us/" ? "active" : ""
                   }`}
                 >
-                  About Us
+                  Hakkımızda
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-link text-white dropdown-toggle"
                   href="#"
                   onClick={(e) => e.preventDefault()}
                 >
@@ -182,11 +192,11 @@ const NavbarStyleTwo: React.FC = () => {
 
               <li className="nav-item">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle text-white"
                   href="#"
                   onClick={(e) => e.preventDefault()}
                 >
-                  Pages
+                  Kurumsal
                 </Link>
 
                 <ul className="dropdown-menu">
@@ -215,7 +225,9 @@ const NavbarStyleTwo: React.FC = () => {
                         <Link
                           href="/services/service-details/"
                           className={`nav-link ${
-                            currentRoute === "/services/service-details/" ? "active" : ""
+                            currentRoute === "/services/service-details/"
+                              ? "active"
+                              : ""
                           }`}
                         >
                           Services Details
@@ -350,7 +362,7 @@ const NavbarStyleTwo: React.FC = () => {
 
               <li className="nav-item dropdown">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle text-white"
                   href="#"
                   onClick={(e) => e.preventDefault()}
                 >
@@ -452,7 +464,7 @@ const NavbarStyleTwo: React.FC = () => {
               <li className="nav-item">
                 <Link
                   href="/contact-us/"
-                  className={`nav-link ${
+                  className={`nav-link text-white ${
                     currentRoute === "/contact-us/" ? "active" : ""
                   }`}
                 >
@@ -468,12 +480,6 @@ const NavbarStyleTwo: React.FC = () => {
               <div className="search-btn" onClick={handleToggleSearchModal}>
                 <i className="ri-search-line"></i>
               </div>
-            </div>
-
-            <div className="option-item">
-              <Link href="/request-quote" className="default-btn">
-                Request A Quote
-              </Link>
             </div>
           </div>
         </div>
