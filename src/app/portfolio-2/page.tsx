@@ -9,28 +9,32 @@ const projects = [
   {
     id: 1,
     title: "Medesham Yeşil Yaşam Evi",
-    description: "Sıfır karbon emisyonlu, sürdürülebilir bir yaşam alanı; doğal aydınlatma ve yenilenebilir enerji sistemleriyle tasarlanmıştır.",
+    description:
+      "Sıfır karbon emisyonlu, sürdürülebilir bir yaşam alanı; doğal aydınlatma ve yenilenebilir enerji sistemleriyle tasarlanmıştır.",
     imageUrl: "/images/medesham-house.jpg",
     link: "/projects/medesham-eco-house",
   },
   {
     id: 2,
     title: "Sydenham Yansıma Villası",
-    description: "Modern ve minimalist yapının çevreyle uyumunu ifade eden sürdürülebilir bir villa.",
+    description:
+      "Modern ve minimalist yapının çevreyle uyumunu ifade eden sürdürülebilir bir villa.",
     imageUrl: "/images/sydenham-house.jpg",
     link: "/projects/sydenham-mirror-house",
   },
   {
     id: 3,
     title: "Covent Garden Cam Teras",
-    description: "Tarihi Covent Garden Market Binası'nın doğu cephesine entegre edilmiş, modern bir cam yapı.",
+    description:
+      "Tarihi Covent Garden Market Binası'nın doğu cephesine entegre edilmiş, modern bir cam yapı.",
     imageUrl: "/images/covent-garden.jpg",
     link: "/projects/covent-garden-glass-pavilion",
   },
   {
     id: 4,
     title: "Ufuk Bahçesi",
-    description: "Doğanın kalbinde, minimalist mimariyle tasarlanmış, huzurlu bir yaşam alanı.",
+    description:
+      "Doğanın kalbinde, minimalist mimariyle tasarlanmış, huzurlu bir yaşam alanı.",
     imageUrl: "/images/the-horizon-retreat.jpg",
     link: "/projects/the-horizon-retreat",
   },
@@ -41,7 +45,10 @@ export default function Page() {
     <>
       <Head>
         <title>Kipras - Portföy Projeleri</title>
-        <meta name="description" content="Kipras'ın modern ve sürdürülebilir projelerini keşfedin." />
+        <meta
+          name="description"
+          content="Kipras'ın modern ve sürdürülebilir projelerini keşfedin."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -68,25 +75,7 @@ export default function Page() {
 
         <ContactForm />
 
-        <Footer
-          companyName="Kipras"
-          companyDescription="Kipras, hayalinizdeki alanın veya ev projenizin bir parçası olmayı çok isteriz."
-          address="Fatih Mah. Sanayi Cad. No:18/A Gaziemir/İzmir"
-          email="info@kipras.com.tr"
-          phone="XXXXXXXX"
-          socialLinks={{
-            linkedin: "https://www.linkedin.com/company/106088918/admin/dashboard/",
-            instagram: "https://www.instagram.com/kiprasgroup?igsh=MTZnaThscXRjY3Y3bQ==",
-          }}
-          siteMapLinks={[
-            { name: "Projeler", url: "/projects" },
-            { name: "Haberler ve Makaleler", url: "/blog" },
-            { name: "Teklif İste", url: "/contact" },
-            { name: "Hizmetler", url: "/services" },
-          ]}
-          newsletterText="En son projelerimiz ve haberlerimiz için bültenimize abone olun."
-          copyright="© 2025 Kipras. Tüm Hakları Saklıdır."
-        />
+        <Footer />
       </div>
     </>
   );

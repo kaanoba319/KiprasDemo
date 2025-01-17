@@ -8,15 +8,11 @@ export default function Page() {
     <>
       <NavbarStyleTwo />
 
-      <PageTitle 
-        title="Privacy Policy"
-        homeText="Home"
-        homeUrl="/"
-      />
+      <PageTitle title="Gizlilik Politikamız" homeText="Anasayfa" homeUrl="/" />
 
       <PrivacyPolicyContent />
- 
+
       <Footer />
     </>
-  )
+  );
 }

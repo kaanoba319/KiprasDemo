@@ -4,7 +4,12 @@ import React from "react";
 import Link from "next/link";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Image from "next/image";
-
+type ProjectCardProps = {
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+};
 const projectsData = [
   {
     id: "1",
@@ -36,7 +41,12 @@ const projectsData = [
   },
 ];
 
-const ProjectCardStyle2: React.FC = () => {
+const ProjectCardStyle2 = ({
+  title,
+  description,
+  imageUrl,
+  link,
+}: ProjectCardProps) => {
   return (
     <>
       <div className="projects-area bg-wrap-with-black pt-100">

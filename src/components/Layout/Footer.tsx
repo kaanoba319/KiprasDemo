@@ -45,7 +45,7 @@ const pageLinksData = [
   },
 ];
 
-const Footer: React.FC = () => {
+const Footer = ({}) => {
   return (
     <>
       <footer className="footer-area pt-100 pb-75">
@@ -146,7 +146,7 @@ const Footer: React.FC = () => {
         <div className="container">
           <div className="copyright-area-content">
             <p>
-              © <span>Kipras</span> Group 2025
+              © <span>Kipras</span> Group 2025. Tüm hakları saklıdır.
             </p>
           </div>
         </div>

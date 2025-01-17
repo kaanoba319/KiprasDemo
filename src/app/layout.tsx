@@ -9,6 +9,7 @@ import "../../public/css/services-details.css";
 import "../../public/css/portfolio-details.css";
 import "../../public/css/blog-details.css";
 import "../../public/css/footer.css";
+import "../../public/css/cookie.css";
 // Globals Styles
 import "../../public/css/style.css";
 // Globals Responsive Styles

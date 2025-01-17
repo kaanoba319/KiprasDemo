@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/aos": "^3.0.7",
+    "@types/cookies": "^0.9.0",
     "@types/fslightbox-react": "^1.7.6",
     "@types/nodemailer": "^6.4.17",
     "aos": "^2.3.4",
@@ -17,6 +18,7 @@
     "bootstrap": "^5.3.2",
     "browserslist": "^4.24.4",
     "caniuse-lite": "^1.0.30001692",
+    "cookie": "^1.0.2",
     "fslightbox-react": "^1.7.6",
     "next": "^14.0.4",
     "nodemailer": "^6.9.16",
@@ -25,6 +27,7 @@
     "react-accessible-accordion": "^5.0.0",
     "react-compare-image": "^3.4.0",
     "react-dom": "^18",
+    "react-icons": "^5.4.0",
     "react-responsive-masonry": "^2.1.7",
     "remixicon": "^3.7.0",
     "sharp": "^0.33.0",
