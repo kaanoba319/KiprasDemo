@@ -3,26 +3,15 @@
 import React from "react";
 
 // Social Links
-const socialLinksData = [
-  {
-    id: "1",
-    icon: "ri-instagram-line",
-    link: "https://www.instagram.com/",
-  },
-  {
-    id: "2",
-    icon: "ri-twitter-line",
-    link: "https://www.twitter.com/",
-  },
-];
-
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 const ContactInfo: React.FC = () => {
   return (
     <>
       <ul className="contact-info-list">
         <li>
           <span>ADRES</span>
-          123 Maple Street Toronto, Ontario M1A 1A1 Canada
+          Fatih mh. Sanayi cd. No:18/A Gaziemir/İzmir
         </li>
 
         <li>
@@ -32,19 +21,20 @@ const ContactInfo: React.FC = () => {
 
         <li>
           <span>SOSYAL MEDYA</span>
-
-          {socialLinksData && (
-            <ul className="social">
-              {socialLinksData &&
-                socialLinksData.map((value, i) => (
-                  <li key={i}>
-                    <a href={value.link} target="_blank">
-                      <i className={value.icon}></i>
-                    </a>
-                  </li>
-                ))}
-            </ul>
-          )}
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <a
+              style={{ display: "flex" }}
+              href="https://www.instagram.com/kiprasgroup/"
+            >
+              <FaInstagram style={{ marginRight: "10px" }} size={30} />
+            </a>
+            <a
+              style={{ display: "flex" }}
+              href="https://www.linkedin.com/company/kipras/posts/?feedView=all"
+            >
+              <FaLinkedin size={30} />
+            </a>
+          </div>
         </li>
       </ul>
     </>
