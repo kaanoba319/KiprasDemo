@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 
@@ -22,6 +22,10 @@ const ContactFormStyleTwo: React.FC = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<string | null>(null);
+  const [showAlert, setShowAlert] = useState(false);
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -32,18 +36,57 @@ const ContactFormStyleTwo: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add your form submission logic here.
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setResponseMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setResponseMessage("Form başarıyla gönderildi!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setShowAlert(true);
+      } else {
+        const errorData = await response.json();
+        setResponseMessage(errorData.error || "Bir hata oluştu.");
+      }
+    } catch (error) {
+      console.error("Hata:", error);
+      setResponseMessage("Bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 3000); // 3 saniye sonra alert kapanır
+
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert]);
 
   return (
     <>
       <div className="contact-area bg-white-wrap">
         <div className="container">
           <div className="row justify-content-center">
-            <div 
+            <div
               className="col-lg-5 col-md-12 pe-5"
               data-aos="fade-up"
               data-aos-delay="100"
@@ -51,12 +94,17 @@ const ContactFormStyleTwo: React.FC = () => {
               data-aos-once="true"
             >
               <div className="contact-image">
-                <Image src={contactImg} alt="contact" width={700} height={1012} />
+                <Image
+                  src={contactImg}
+                  alt="contact"
+                  width={700}
+                  height={1012}
+                />
               </div>
             </div>
 
-            <div 
-              className="col-lg-7 col-md-12 position-relative ps-5" 
+            <div
+              className="col-lg-7 col-md-12 position-relative ps-5"
               data-aos="fade-up"
               data-aos-delay="200"
               data-aos-duration="600"
@@ -73,7 +121,7 @@ const ContactFormStyleTwo: React.FC = () => {
                     <form onSubmit={handleSubmit}>
                       <div className="form-group">
                         <label>
-                          YOUR NAME<span>*</span>
+                          İsminiz<span>*</span>
                         </label>
                         <input
                           type="text"
@@ -82,12 +130,13 @@ const ContactFormStyleTwo: React.FC = () => {
                           onChange={handleChange}
                           className="form-control"
                           placeholder="Jonathon Ronan"
+                          required
                         />
                       </div>
 
                       <div className="form-group">
                         <label>
-                          EMAIL ADDRESS<span>*</span>
+                          E-posta<span>*</span>
                         </label>
                         <input
                           type="email"
@@ -96,12 +145,13 @@ const ContactFormStyleTwo: React.FC = () => {
                           onChange={handleChange}
                           className="form-control"
                           placeholder="jonathonronana63@gmail.com"
+                          required
                         />
                       </div>
 
                       <div className="form-group">
                         <label>
-                          PHONE NO<span>*</span>
+                          Telefon<span>*</span>
                         </label>
                         <input
                           type="tel"
@@ -109,27 +159,38 @@ const ContactFormStyleTwo: React.FC = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           className="form-control"
-                          placeholder="+0 321 546 2345"
+                          placeholder="0533 123 123 1212"
+                          required
                         />
                       </div>
 
                       <div className="form-group">
                         <label>
-                          YOUR MESSAGE HERE<span>*</span>
+                          Mesajınız<span>*</span>
                         </label>
                         <textarea
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
                           className="form-control"
-                          placeholder="Write your message here..."
+                          placeholder="Mesajınızı buraya yazın..."
+                          required
                         ></textarea>
                       </div>
 
-                      <button type="submit" className="default-btn">
-                        Send Message Now
+                      <button
+                        type="submit"
+                        className="default-btn"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Gönderiliyor..." : "Gönder"}
                       </button>
                     </form>
+                    {showAlert && (
+                      <div className="alert alert-success mt-3" role="alert">
+                        {responseMessage}
+                      </div>
+                    )}
                   </div>
 
                   <div className="col-lg-5 col-md-6">
