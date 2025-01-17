@@ -13,10 +13,6 @@ export default function Page() {
         title="Kariyerinizi bizimle yapın"
         homeText="Anasayfa"
         homeUrl="/"
-        cta={{
-          text: "Hemen Teklif Al",
-          url: "/start",
-        }}
       />
 
       {/* Teklif Formu */}
