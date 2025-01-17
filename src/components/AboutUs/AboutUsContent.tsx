@@ -31,7 +31,8 @@ const AboutUsContent: React.FC = () => {
           <div className="about-three-title">
             <span>HAKKIMIZDA</span>
             <h2>
-              Biz <b>KİPRAS GROUPs </b>'uz. Hayalleri İnşa Ediyor, Geleceği Şekillendiriyoruz.
+              Biz <b>KİPRAS GROUPs </b>uz. Hayalleri İnşa Ediyor, Geleceği
+              Şekillendiriyoruz.
             </h2>
           </div>
 
@@ -44,33 +45,67 @@ const AboutUsContent: React.FC = () => {
               <div className="col-lg-6 col-md-12">
                 <div className="about-three-left-content">
                   <p className="mb-0">
-                  KİPRAS GROUP olarak, mimari tasarım, inşaat ve proje yönetimindeki gelişmiş bakış açımızı 22 yıllık tecrübemizle hayata geçiriyoruz. Konut, ticari ve kamu projelerinde estetik, işlevsellik ve sürdürülebilirliği bir araya getirerek zamansız eserler oluşturuyoruz.
+                    KİPRAS GROUP olarak, mimari tasarım, inşaat ve proje
+                    yönetimindeki gelişmiş bakış açımızı 22 yıllık tecrübemizle
+                    hayata geçiriyoruz. Konut, ticari ve kamu projelerinde
+                    estetik, işlevsellik ve sürdürülebilirliği bir araya
+                    getirerek zamansız eserler oluşturuyoruz.
                   </p>
 
                   <ul className="list">
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />
                       Yenilikçi Tasarım Anlayışı
                     </li>
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />
                       22 Yıllık Uzmanlık ve Deneyim
                     </li>
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} /> A client-centric
-                      Müşteri Odaklı Yaklaşım
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />{" "}
+                      A client-centric Müşteri Odaklı Yaklaşım
                     </li>
                     <li>
-                      <Image src={arrowIcon} alt="arrow" width={28} height={10} />
+                      <Image
+                        src={arrowIcon}
+                        alt="arrow"
+                        width={28}
+                        height={10}
+                      />
                       Sürdürülebilir Tasarım Uygulamaları
                     </li>
                   </ul>
 
                   <div className="about-image-wrap">
-                    <Image src={videoThumb} alt="image" width={1052} height={1120} />
+                    <Image
+                      src={videoThumb}
+                      alt="image"
+                      width={1052}
+                      height={1120}
+                    />
 
                     <div className="wrap-video">
-                      <Image src={videoCircleImg} alt="image" width={184} height={184} />
+                      <Image
+                        src={videoCircleImg}
+                        alt="image"
+                        width={184}
+                        height={184}
+                      />
 
                       <div
                         className="video-btn text-decoration-none"
@@ -89,22 +124,21 @@ const AboutUsContent: React.FC = () => {
                   <OurMissionAndVision />
 
                   <div className="about-wrap-content">
-                    <h2>
-                    Mimarlık ve İç Mimarlık Bizim İşimiz, Tutkumuz
-                    </h2>
+                    <h2>Mimarlık ve İç Mimarlık Bizim İşimiz, Tutkumuz</h2>
                     <p>
-                    KİPRAS GROUP, mimari tasarım, master planlama, kentsel tasarım, iç
-    mimari, alan planlaması ve programlama gibi alanlarda geniş kapsamlı
-    hizmet veren bir tasarım firmasıdır. Tamamlanmış projelerimiz arasında
-    uluslararası çapta beğeni toplayan ve ödüllü işler bulunmaktadır.
+                      KİPRAS GROUP, mimari tasarım, master planlama, kentsel
+                      tasarım, iç mimari, alan planlaması ve programlama gibi
+                      alanlarda geniş kapsamlı hizmet veren bir tasarım
+                      firmasıdır. Tamamlanmış projelerimiz arasında uluslararası
+                      çapta beğeni toplayan ve ödüllü işler bulunmaktadır.
                     </p>
                     <p>
-                    KİPRAS GROUP olarak, mimarlığın yalnızca binalardan ibaret
-    olmadığına, yaşamımızı, çalışma şeklimizi ve çevremizle
-    etkileşimimizi şekillendiren bir sanat olduğuna inanıyoruz. Yapılı
-    çevreye dair derin bir anlayış ve sarsılmaz bir özveri ile
-    müşterilerimizin hayallerini gerçeğe dönüştürüyor, mekanlara kimlik
-    ve ruh katıyoruz.
+                      KİPRAS GROUP olarak, mimarlığın yalnızca binalardan ibaret
+                      olmadığına, yaşamımızı, çalışma şeklimizi ve çevremizle
+                      etkileşimimizi şekillendiren bir sanat olduğuna
+                      inanıyoruz. Yapılı çevreye dair derin bir anlayış ve
+                      sarsılmaz bir özveri ile müşterilerimizin hayallerini
+                      gerçeğe dönüştürüyor, mekanlara kimlik ve ruh katıyoruz.
                     </p>
                   </div>
                 </div>

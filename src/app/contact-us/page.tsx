@@ -9,11 +9,7 @@ export default function Page() {
     <>
       <NavbarStyleTwo />
 
-      <PageTitle 
-        title="Contact Us"
-        homeText="Home"
-        homeUrl="/"
-      />
+      <PageTitle title="İletişim kurun" homeText="Anasayfa" homeUrl="/" />
 
       <div className="ptb-100">
         <ContactFormStyleTwo />
@@ -22,8 +18,8 @@ export default function Page() {
       <div className="pb-100">
         <GoogleMap />
       </div>
- 
+
       <Footer />
     </>
-  )
+  );
 }

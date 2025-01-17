@@ -112,8 +112,8 @@ const ContactFormStyleTwo: React.FC = () => {
             >
               <div className="contact-form-wrap">
                 <div className="title">
-                  <span>CONTACT</span>
-                  <h2>Contact Us Anytime, We Are Always There For You</h2>
+                  <span>İLETİŞİM</span>
+                  <h2>Bizimle iletişime geçin, her zaman sizinleyiz..</h2>
                 </div>
 
                 <div className="row align-items-center">

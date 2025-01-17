@@ -22,7 +22,10 @@ const OurMissionAndVision: React.FC = () => {
           </AccordionItemHeading>
           <AccordionItemPanel>
             <p>
-            KİPRAS GROUP olarak misyonumuz, estetik, işlevsellik ve sürdürülebilirliği bir araya getirerek, kullanıcıların ihtiyaçlarına ve hayallerine cevap veren, zamana meydan okuyan mimari eserler yaratmaktır.
+              KİPRAS GROUP olarak misyonumuz, estetik, işlevsellik ve
+              sürdürülebilirliği bir araya getirerek, kullanıcıların
+              ihtiyaçlarına ve hayallerine cevap veren, zamana meydan okuyan
+              mimari eserler yaratmaktır.
             </p>
           </AccordionItemPanel>
         </AccordionItem>
@@ -33,7 +36,9 @@ const OurMissionAndVision: React.FC = () => {
           </AccordionItemHeading>
           <AccordionItemPanel>
             <p>
-            Vizyonumuz, yenilikçi ve sürdürülebilir mimari çözümlerle, Türkiye'de ve dünyada örnek gösterilen, öncü bir mimarlık firması olmaktır.
+              Vizyonumuz, yenilikçi ve sürdürülebilir mimari çözümlerle,
+              Türkiyede ve dünyada örnek gösterilen, öncü bir mimarlık firması
+              olmaktır.
             </p>
           </AccordionItemPanel>
         </AccordionItem>
