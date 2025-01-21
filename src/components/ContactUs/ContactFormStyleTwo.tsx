@@ -3,7 +3,6 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
-
 import contactImg from "../../../public/images/contact/contact.png";
 import shape from "../../../public/images/contact/shape.png";
 
@@ -12,6 +11,11 @@ interface FormData {
   email: string;
   phone: string;
   message: string;
+  ip?: string;
+  screenResolution?: string;
+  deviceType?: string;
+  operatingSystem?: string;
+  browser?: string;
 }
 
 const ContactFormStyleTwo: React.FC = () => {
@@ -36,6 +40,73 @@ const ContactFormStyleTwo: React.FC = () => {
     });
   };
 
+  const fetchIP = async () => {
+    try {
+      const response = await fetch("/api/get-ip");
+      const data = await response.json();
+      setFormData((prevData) => ({
+        ...prevData,
+        ip: data.ip,
+      }));
+    } catch (error) {
+      console.error("IP adresi alınamadı:", error);
+    }
+  };
+
+  const fetchDeviceDetails = () => {
+    const screenResolution = `${window.screen.width}x${window.screen.height}`;
+    const deviceType = window.innerWidth < 768 ? "Mobile" : "Desktop";
+
+    let operatingSystem = "Unknown OS";
+    let browser = "Unknown Browser";
+    let userAgent = navigator.userAgent; // Eski yöntemle yedekleme
+    const userAgentData = (navigator as any).userAgentData; // Modern API, TypeScript'te tanımlı olmayabilir
+
+    // Modern tarayıcı desteği için kontrol
+    if (userAgentData) {
+      operatingSystem = userAgentData.platform || operatingSystem;
+      browser = userAgentData.brands
+        ? userAgentData.brands.map((brand: any) => brand.brand).join(", ")
+        : browser;
+    } else {
+      // Eski `userAgent` string analizine geri dön
+      if (userAgent.indexOf("Win") !== -1) operatingSystem = "Windows";
+      else if (userAgent.indexOf("Mac") !== -1) operatingSystem = "MacOS";
+      else if (userAgent.indexOf("Linux") !== -1) operatingSystem = "Linux";
+      else if (/Android/.test(userAgent)) operatingSystem = "Android";
+      else if (/iPhone|iPad|iPod/.test(userAgent)) operatingSystem = "iOS";
+
+      if (userAgent.indexOf("Chrome") !== -1) browser = "Chrome";
+      else if (
+        userAgent.indexOf("Safari") !== -1 &&
+        userAgent.indexOf("Chrome") === -1
+      )
+        browser = "Safari";
+      else if (userAgent.indexOf("Firefox") !== -1) browser = "Firefox";
+      else if (
+        userAgent.indexOf("MSIE") !== -1 ||
+        userAgent.indexOf("Trident") !== -1
+      )
+        browser = "Internet Explorer";
+      else if (userAgent.indexOf("Edge") !== -1) browser = "Edge";
+    }
+
+    setFormData((prevData) => ({
+      ...prevData,
+      screenResolution,
+      deviceType,
+      operatingSystem,
+      browser,
+    }));
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && navigator) {
+      fetchDeviceDetails();
+      fetchIP();
+    }
+  }, []);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -47,12 +118,7 @@ const ContactFormStyleTwo: React.FC = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          fullName: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
@@ -75,7 +141,7 @@ const ContactFormStyleTwo: React.FC = () => {
     if (showAlert) {
       const timer = setTimeout(() => {
         setShowAlert(false);
-      }, 3000); // 3 saniye sonra alert kapanır
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
